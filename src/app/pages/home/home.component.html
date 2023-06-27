@@ -1,5 +1,6 @@
+<app-header (onClickCreateCard)="createCard()"></app-header>
 <div class="content home-content">
-  <app-card />
-  <app-card />
-  <app-card />
+  <!-- Renderiza todos os cards-->
+  <app-card *ngFor="let card of cards" [card]="card" (onCardChange)="updateCard($event)"
+    (onCardRemove)="removeCard($event)"></app-card>
 </div>

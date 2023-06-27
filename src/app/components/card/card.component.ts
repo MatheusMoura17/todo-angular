@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import Card from 'src/app/models/Card';
+import { CardService } from 'src/app/services/card.service';
 
 @Component({
   selector: 'app-card',
@@ -6,19 +8,28 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  @Input() id: string = "Card Id";
-  @Input() title: string = "Card Title";
-  @Input() content: string = "Card Content";
+  constructor() { }
+  @Input() card = new Card();
+  @Output() onCardRemove = new EventEmitter<Card>();
+  @Output() onCardChange = new EventEmitter<Card>();
 
   onRemove() {
-    console.log(this.id);
+    this.onCardRemove.emit(this.card);
   }
 
   onTitleChanged(event: any) {
-    this.title = event.target.innerText;
+    const updated = new Card();
+    updated.id = this.card.id;
+    updated.title = event.target.innerText;
+    updated.content = this.card.content;
+    this.onCardChange.emit(updated);
   }
 
   onContentChanged(event: any) {
-    this.content = event.target.innerText;
+    const updated = new Card();
+    updated.id = this.card.id;
+    updated.title = this.card.title;
+    updated.content = event.target.innerText;
+    this.onCardChange.emit(updated);
   }
 }

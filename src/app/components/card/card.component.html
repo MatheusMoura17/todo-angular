@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h4 class="card-title" contenteditable (input)="onTitleChanged($event)">{{title}}</h4>
+    <h4 class="card-title" contenteditable (input)="onTitleChanged($event)">{{card.title}}</h4>
     <div class="card-actions" (click)="onRemove()">
       <svg fill="red" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
         <path fill="red"
@@ -9,6 +9,6 @@
     </div>
   </div>
   <div class="card-body" contenteditable (input)="onContentChanged($event)">
-    {{content}}
+    {{card.content}}
   </div>
 </div>
