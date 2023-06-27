@@ -22,3 +22,9 @@ body {
   height: 100%;
   color: var(--dark);
 }
+
+.content {
+  max-width: 1920px;
+  width: 90%;
+  margin: 0 auto;
+}

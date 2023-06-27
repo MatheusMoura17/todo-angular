@@ -1,0 +1,23 @@
+.home-content {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  padding: var(--space-1);
+  gap: var(--space-1);
+}
+
+.home-content>* {
+  flex: 0 0 calc(33% - var(--space-1)/2);
+}
+
+@media (max-width: 1080px) and (min-width: 720px) {
+  .home-content>* {
+    flex: 0 0 calc(50% - var(--space-1)/2);
+  }
+}
+
+@media (max-width: 720px) {
+  .home-content>* {
+    flex: 0 0 100%;
+  }
+}

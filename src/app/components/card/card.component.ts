@@ -6,18 +6,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  @Input() id: string = "Card Id";
   @Input() title: string = "Card Title";
   @Input() content: string = "Card Content";
 
   onRemove() {
-    console.log("CardComponent.onRemove()");
+    console.log(this.id);
   }
 
   onTitleChanged(event: any) {
-    this.title = event.target.innerHTML;
+    this.title = event.target.innerText;
   }
 
   onContentChanged(event: any) {
-    this.content = event.target.innerHTML;
+    this.content = event.target.innerText;
   }
 }
